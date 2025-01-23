@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
 function StuDashboard() {
   const getAttendanceColor = (attendance) => {
@@ -39,14 +40,20 @@ function StuDashboard() {
 
   // Add attendance management functions
 
-  const [studentDetails, setStudentDetails] = useState({
-    Name: "",
-    USN: "",
-    Dept: "",
-    ContactNo: "",
-    Email: "",
-    Address: "",
-  });
+  const [studentDetails, setStudentDetails] = useState(
+    () => {
+      const storedDetails = localStorage.getItem("studentDetails");
+      return storedDetails ? JSON.parse(storedDetails) : {
+        Name: "",
+        USN: "",
+        Dept: "",
+        ContactNo: "",
+        Email: "",
+        Address: "",
+      };
+    },
+    []
+  );
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -62,14 +69,18 @@ function StuDashboard() {
     setIsEditing(!isEditing);
   };
 
-  const scores = {
-    Mathematics: 92,
-    DAA: 88,
-    DBMS: 85,
-    SEPM: 78,
-    MP: 90,
-    UNIX: 95,
-  };
+  const [scores, setScores] = useState(() => {
+    const storedScores = localStorage.getItem("scores");
+    return storedScores ? JSON.parse(storedScores) : {
+      Mathematics: 0,
+      DAA: 0,
+      DBMS: 0,
+      SEPM: 0,
+      MP: 0,
+      UNIX: 0,
+    };
+  }, []);
+
   const subjectEnrollment = [
     {
       subject: "Mathematics",
@@ -110,19 +121,22 @@ function StuDashboard() {
   ];
 
   // Add parent details
-  const [parentDetails,setParentDetails] = useState({
-    FatherName: "",
-    FatherOccupation: "",
-    FatherContact: "",
-    FatherEmail: "",
-    MotherName: "",
-    MotherOccupation: "",
-    MotherContact: "",
-    MotherEmail: "",
-    Address: "",
-    EmergencyContact: "",
-  });
-  
+  const [parentDetails, setParentDetails] = useState(() => {
+    const storedParentDetails = localStorage.getItem("parentDetails");
+    return storedParentDetails ? JSON.parse(storedParentDetails) : {
+      FatherName: "",
+      FatherOccupation: "",
+      FatherContact: "",
+      FatherEmail: "",
+      MotherName: "",
+      MotherOccupation: "",
+      MotherContact: "",
+      MotherEmail: "",
+      Address: "",
+      EmergencyContact: "",
+    };
+  }, []);
+
   const [isEditingParent, setIsEditingParent] = useState(false);
 
   const handleInputChangeParent = (e) => {
@@ -136,6 +150,18 @@ function StuDashboard() {
   const handleParentInputChange = () => {
     setIsEditingParent(!isEditingParent);
   };
+
+  useEffect(() => {
+    localStorage.setItem("studentDetails", JSON.stringify(studentDetails));
+  }, [studentDetails]);
+
+  useEffect(() => {
+    localStorage.setItem("scores", JSON.stringify(scores));
+  }, [scores]);
+
+  useEffect(() => {
+    localStorage.setItem("parentDetails", JSON.stringify(parentDetails));
+  }, [parentDetails]);
 
   return (
     <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
