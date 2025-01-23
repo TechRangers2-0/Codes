@@ -50,14 +50,14 @@ const Navbar = () => {
                   Features
                 </NavLink>
             
-            <div className="flex items-center space-x-4">
-              <a className="px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-full hover:shadow-lg hover:from-purple-600 hover:to-indigo-600 transform hover:-translate-y-0.5 transition-all duration-200">
-                Sign Up
-              </a>
-              <a className="hidden px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-full hover:shadow-lg hover:from-purple-600 hover:to-indigo-600 transform hover:-translate-y-0.5 transition-all duration-200">
-                Dashboard
-              </a>
-            </div>
+                <NavLink
+                to="/SignUp"
+                  className={({isActive}) =>
+                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-indigo-600' : 'text-gray-700'} "text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-200`
+                  }
+                >
+                  SignUp
+                </NavLink>
           </nav>
 
           {/* Mobile Menu Button */}

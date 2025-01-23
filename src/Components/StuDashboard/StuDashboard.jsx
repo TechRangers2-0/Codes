@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 function StuDashboard() {
   const getAttendanceColor = (attendance) => {
@@ -28,7 +29,7 @@ function StuDashboard() {
     },
     {
       subject: "MP",
-      attendance: 95,
+      attendance: 74,
     },
     {
       subject: "UNIX",
@@ -36,19 +37,29 @@ function StuDashboard() {
     },
   ];
 
-  
   // Add attendance management functions
-  
 
-  
+  const [studentDetails, setStudentDetails] = useState({
+    Name: "",
+    USN: "",
+    Dept: "",
+    ContactNo: "",
+    Email: "",
+    Address: "",
+  });
 
-  const studentDetails = {
-    name: "John Doe",
-    rollNo: "2024001",
-    class: "X-A",
-    contactNo: "+1 234-567-8900",
-    email: "john.doe@school.com",
-    address: "123 Education Street",
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setStudentDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
+  };
+
+  const handleStudentInputChange = () => {
+    setIsEditing(!isEditing);
   };
 
   const scores = {
@@ -99,17 +110,31 @@ function StuDashboard() {
   ];
 
   // Add parent details
-  const parentDetails = {
-    fatherName: "Robert Doe",
-    fatherOccupation: "Software Engineer",
-    fatherContact: "+1 234-567-8901",
-    fatherEmail: "robert.doe@email.com",
-    motherName: "Sarah Doe",
-    motherOccupation: "Doctor",
-    motherContact: "+1 234-567-8902",
-    motherEmail: "sarah.doe@email.com",
-    address: "123 Family Street, Cityville",
-    emergencyContact: "+1 234-567-8903",
+  const [parentDetails,setParentDetails] = useState({
+    FatherName: "",
+    FatherOccupation: "",
+    FatherContact: "",
+    FatherEmail: "",
+    MotherName: "",
+    MotherOccupation: "",
+    MotherContact: "",
+    MotherEmail: "",
+    Address: "",
+    EmergencyContact: "",
+  });
+  
+  const [isEditingParent, setIsEditingParent] = useState(false);
+
+  const handleInputChangeParent = (e) => {
+    const { name, value } = e.target;
+    setParentDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
+  };
+
+  const handleParentInputChange = () => {
+    setIsEditingParent(!isEditingParent);
   };
 
   return (
@@ -125,166 +150,187 @@ function StuDashboard() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-  {/* Attendance Chart */}
-  <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
-    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6">
-      <h2 className="text-xl font-semibold text-gray-800 flex items-center">
-        Subject-wise Attendance
-      </h2>
-    </div>
-    <div className="p-6">
-      <div className="h-[400px] flex items-end space-x-6">
-        {attendanceData.map((item) => (
-          <div
-            key={item.subject}
-            className="flex flex-col items-center flex-1 group"
-          >
-            <div className="w-full relative">
-              <div
-                className={`w-full bg-gradient-to-t ${getAttendanceColor(
-                  item.attendance
-                )} rounded-t-lg transition-all duration-300 group-hover:translate-y-1 relative`}
-                style={{ height: `${item.attendance * 3}px` }}
-              >
-                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                  {item.attendance}%
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-full flex items-center justify-center">
+          {/* Attendance Chart */}
+          <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6">
+              <h2 className="text-xl font-semibold text-gray-800 flex items-center">
+                Subject-wise Attendance
+              </h2>
+            </div>
+            <div className="p-6">
+              <div className="h-[400px] flex items-end space-x-6">
+                {attendanceData.map((item) => (
                   <div
-                    className="text-white text-sm font-medium transform -rotate-90 origin-center whitespace-nowrap"
-                    style={{
-                      transformOrigin: "center",
-                      width: "20px",
-                      textAlign: "center",
-                      letterSpacing: "0.05em",
-                      textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
-                    }}
+                    key={item.subject}
+                    className="flex flex-col items-center flex-1 group"
                   >
-                    {item.subject}
+                    <div className="w-full relative">
+                      <div
+                        className={`w-full bg-gradient-to-t ${getAttendanceColor(
+                          item.attendance
+                        )} rounded-t-lg transition-all duration-300 group-hover:translate-y-1 relative`}
+                        style={{ height: `${item.attendance * 3}px` }}
+                      >
+                        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                          {item.attendance}%
+                        </div>
+                        <div className="absolute bottom-0 left-0 right-0 h-full flex items-center justify-center">
+                          <div
+                            className="text-white text-sm font-medium transform -rotate-90 origin-center whitespace-nowrap"
+                            style={{
+                              transformOrigin: "center",
+                              width: "20px",
+                              textAlign: "center",
+                              letterSpacing: "0.05em",
+                              textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
+                            }}
+                          >
+                            {item.subject}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mb-6 mx-6">
+              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <h3 className="text-gray-800 font-semibold mb-3">
+                  Attendance Indicators
+                </h3>
+                <div className="space-y-2">
+                  <div className="flex items-center">
+                    <div className="w-8 h-4 bg-gradient-to-r from-green-500 to-green-600 rounded mr-3"></div>
+                    <span className="text-sm text-gray-600">
+                      Excellent (85% - 100%)
+                    </span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-8 h-4 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded mr-3"></div>
+                    <span className="text-sm text-gray-600">
+                      Average (75% - 84%)
+                    </span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-8 h-4 bg-gradient-to-r from-red-500 to-red-600 rounded mr-3"></div>
+                    <span className="text-sm text-gray-600">
+                      Needs Improvement (Below 75%)
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
+            <button className="px-6 py-2 ml-4 mb-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-medium rounded-full hover:shadow-lg hover:from-blue-700 hover:to-blue-500 transform hover:-translate-y-0.5 transition-all duration-200">
+              Edit
+            </button>
           </div>
-        ))}
-      </div>
-    </div>
-    <div className="mb-6 mx-6">
-      <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-        <h3 className="text-gray-800 font-semibold mb-3">Attendance Indicators</h3>
-        <div className="space-y-2">
-          <div className="flex items-center">
-            <div className="w-8 h-4 bg-gradient-to-r from-green-500 to-green-600 rounded mr-3"></div>
-            <span className="text-sm text-gray-600">Excellent (85% - 100%)</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-8 h-4 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded mr-3"></div>
-            <span className="text-sm text-gray-600">Average (75% - 84%)</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-8 h-4 bg-gradient-to-r from-red-500 to-red-600 rounded mr-3"></div>
-            <span className="text-sm text-gray-600">Needs Improvement (Below 75%)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      className="px-6 py-2 ml-4 mb-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-medium rounded-full hover:shadow-lg hover:from-blue-700 hover:to-blue-500 transform hover:-translate-y-0.5 transition-all duration-200"
-    >
-      Edit
-    </button>
-  </div>
 
-  {/* Student Details */}
-  <div className="space-y-8">
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 pb-4">
-      <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6">
-        <h2 className="text-xl font-semibold text-gray-800 flex items-center">
-          <svg
-            className="w-5 h-5 mr-2 text-purple-500"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-            />
-          </svg>
-          Student Details
-        </h2>
-      </div>
-      <div className="p-6">
-        <div className="space-y-4">
-          {Object.entries(studentDetails).map(([key, value]) => (
-            <div
-              key={key}
-              className="flex items-center justify-between"
-            >
-              <span className="text-gray-600 font-medium capitalize">
-                {key.replace(/([A-Z])/g, " $1").trim()}:
-              </span>
-              <span className="text-gray-800">{value}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <a className="mt-3 px-6 py-2 ml-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-full hover:shadow-lg hover:from-purple-600 hover:to-indigo-600 transform hover:-translate-y-0.5 transition-all duration-200">
-        Edit
-      </a>
-    </div>
-
-    {/* Academic Scores */}
-    <div className="bg-white rounded-2xl shadow-lg pb-4 overflow-hidden border border-gray-100">
-      <div className="bg-gradient-to-r from-green-50 to-teal-50 p-6">
-        <h2 className="text-xl font-semibold text-gray-800 flex items-center">
-          <svg
-            className="w-5 h-5 mr-2 text-green-500"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-            />
-          </svg>
-          Academic Scores
-        </h2>
-      </div>
-      <div className="p-6 mb-4">
-        <div className="space-y-5">
-          {Object.entries(scores).map(([subject, score]) => (
-            <div key={subject}>
-              <div className="flex justify-between mb-2">
-                <span className="capitalize text-gray-600 font-medium">
-                  {subject}
-                </span>
-                <span className="text-gray-800 font-semibold">
-                  {score}%
-                </span>
+          {/* Student Details */}
+          <div className="space-y-8">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 pb-4">
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6">
+                <h2 className="text-xl font-semibold text-gray-800 flex items-center">
+                  <svg
+                    className="w-5 h-5 mr-2 text-purple-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
+                  </svg>
+                  Student Details
+                </h2>
               </div>
-              <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-green-500 to-green-600 rounded-full transition-all duration-500 ease-out"
-                  style={{ width: `${score}%` }}
-                />
+              <div className="p-6">
+                <div className="space-y-4">
+                  {Object.entries(studentDetails).map(([key, value]) => (
+                    <div
+                      key={key}
+                      className="flex items-center justify-between"
+                    >
+                      <span className="text-gray-600 font-medium capitalize">
+                        {key.replace(/([A-Z])/g, " $1").trim()}:
+                      </span>
+                      {isEditing ? (
+                        <input
+                          className="w-2/3 p-2 border rounded-md"
+                          type="text"
+                          name={key}
+                          value={value}
+                          onChange={handleInputChange}
+                        />
+                      ) : (
+                        <span className="w-2/3">{value}</span>
+                      )}
+                      {/* <span className="text-gray-800">{value}</span> */}
+                    </div>
+                  ))}
+                </div>
               </div>
+              <a
+                className="mt-3 px-6 py-2 ml-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-full hover:shadow-lg hover:from-purple-600 hover:to-indigo-600 transform hover:-translate-y-0.5 transition-all duration-200"
+                onClick={handleStudentInputChange }
+              >
+                {isEditing ? "Save" : "Edit"}
+              </a>
             </div>
-          ))}
-        </div>
-      </div>
-      <a className="mt-3 px-6 py-2 ml-4 bg-gradient-to-r from-green-500 to-green-700 text-white font-medium rounded-full hover:shadow-lg hover:from-green-700 hover:to-green-500 transform hover:-translate-y-0.5 transition-all duration-200">
-        Edit
-      </a>
-    </div>
-  </div>
-</div>
 
+            {/* Academic Scores */}
+            <div className="bg-white rounded-2xl shadow-lg pb-4 overflow-hidden border border-gray-100">
+              <div className="bg-gradient-to-r from-green-50 to-teal-50 p-6">
+                <h2 className="text-xl font-semibold text-gray-800 flex items-center">
+                  <svg
+                    className="w-5 h-5 mr-2 text-green-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                    />
+                  </svg>
+                  Academic Scores
+                </h2>
+              </div>
+              <div className="p-6 mb-4">
+                <div className="space-y-5">
+                  {Object.entries(scores).map(([subject, score]) => (
+                    <div key={subject}>
+                      <div className="flex justify-between mb-2">
+                        <span className="capitalize text-gray-600 font-medium">
+                          {subject}
+                        </span>
+                        <span className="text-gray-800 font-semibold">
+                          {score}%
+                        </span>
+                      </div>
+                      <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-green-500 to-green-600 rounded-full transition-all duration-500 ease-out"
+                          style={{ width: `${score}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <a className="mt-3 px-6 py-2 ml-4 bg-gradient-to-r from-green-500 to-green-700 text-white font-medium rounded-full hover:shadow-lg hover:from-green-700 hover:to-green-500 transform hover:-translate-y-0.5 transition-all duration-200">
+                Edit
+              </a>
+            </div>
+          </div>
+        </div>
+
+          {/* Sub enrollment */}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
@@ -333,6 +379,8 @@ function StuDashboard() {
             </a>
           </div>
 
+            {/* Parent's details */}
+
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 pb-4">
             <div className="bg-gradient-to-r from-pink-50 to-red-50 p-6">
               <h2 className="text-xl font-semibold text-gray-800 flex items-center">
@@ -359,18 +407,28 @@ function StuDashboard() {
                     <span className="text-gray-600 font-medium capitalize">
                       {key.replace(/([A-Z])/g, " $1").trim()}:
                     </span>
-                    <span className="text-gray-800">{value}</span>
+                    {isEditingParent ? (
+                        <input
+                          className="w-2/3 p-2 border rounded-md"
+                          type="text"
+                          name={key}
+                          value={value}
+                          onChange={handleInputChangeParent}
+                        />
+                      ) : (
+                        <span className="w-2/3">{value}</span>
+                      )}
+                    {/* <span className="text-gray-800">{value}</span> */}
                   </div>
                 ))}
               </div>
             </div>
-            <a className="px-6 py-2 ml-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white font-medium rounded-full hover:shadow-lg hover:from-pink-700 hover:to-pink-500 transform hover:-translate-y-0.5 transition-all duration-200">
-              Edit
+            <a className="px-6 py-2 ml-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white font-medium rounded-full hover:shadow-lg hover:from-pink-700 hover:to-pink-500 transform hover:-translate-y-0.5 transition-all duration-200" onClick={handleParentInputChange}>
+            {isEditingParent ? "Save" : "Edit"}
             </a>
           </div>
         </div>
       </div>
-      
     </div>
   );
 }

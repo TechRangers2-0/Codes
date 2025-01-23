@@ -7,7 +7,7 @@ import Home from "./Components/Home/Home"
 import About from "./Components/About/About"
 import Contact from './Components/Contact/Contact'
 import StuDashboard from './Components/StuDashboard/StuDashboard'
-import Signup from './Components/Signup/Signup'
+import SignUp from './Components/SignUp/SignUp'
 
 const router=createBrowserRouter(
   createRoutesFromElements(
@@ -16,7 +16,7 @@ const router=createBrowserRouter(
        <Route path='About' element={<About/>}/>
        <Route path='Contact' element={<Contact/>}/>
        <Route path='StuDashboard' element={<StuDashboard/>}/>
-       <Route path='Signup' element={<Signup/>}/>
+       <Route path='SignUp' element={<SignUp/>}/>
     </Route>
   )
 )
@@ -24,7 +24,7 @@ const router=createBrowserRouter(
 createRoot(document.getElementById('root')).render(
  
 <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+  <RouterProvider router={router} />
+    </StrictMode>,
 
 )
