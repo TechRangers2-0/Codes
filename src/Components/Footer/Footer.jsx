@@ -6,7 +6,7 @@ export const Footer = () => {
     <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12">
             <div>
-                <h3 className="text-xl font-bold mb-4">About Study Hive</h3>
+                <h3 className="text-xl font-bold mb-4">About EduTrack</h3>
                 <p className="text-gray-200">
                     Empowering students worldwide with innovative learning tools, collaborative features, and smart productivity solutions.
                 </p>
@@ -45,7 +45,7 @@ export const Footer = () => {
         </div>
 
         <hr className="my-8 border-white/20"/>
-        <p className="text-center text-gray-200">&copy; 2024 Study Hive. All rights reserved.</p>
+        <p className="text-center text-gray-200">&copy; 2025 EduTrack. All rights reserved.</p>
     </div>
 </footer>
 
