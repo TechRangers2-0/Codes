@@ -8,6 +8,9 @@ import About from "./Components/About/About"
 import Contact from './Components/Contact/Contact'
 import StuDashboard from './Components/StuDashboard/StuDashboard'
 import SignUp from './Components/SignUp/SignUp'
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import AccountCreatedPage from './components/AccountCreatedPage';
 
 const router=createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +20,10 @@ const router=createBrowserRouter(
        <Route path='Contact' element={<Contact/>}/>
        <Route path='StuDashboard' element={<StuDashboard/>}/>
        <Route path='SignUp' element={<SignUp/>}/>
+       <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/account-created" element={<AccountCreatedPage />} />
+        
     </Route>
   )
 )
