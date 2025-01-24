@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
@@ -7,6 +8,7 @@ import { Link } from 'react-router-dom';
 const LoginForm = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // Hook for navigation
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,6 +20,7 @@ const LoginForm = () => {
     try {
       await signInWithEmailAndPassword(auth, formData.email, formData.password);
       alert('Login successful!');
+      navigate('/classform'); // Navigate to ClassForm page
     } catch (error) {
       alert(error.message);
     } finally {

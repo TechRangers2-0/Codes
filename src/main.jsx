@@ -11,6 +11,8 @@ import SignUp from './Components/SignUp/SignUp'
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import AccountCreatedPage from './components/AccountCreatedPage';
+import ClassForm from './components/ClassForm/ClassForm';
+import StuDetailPage from './components/StuDetailPage/StuDetailPage';
 
 const router=createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +25,9 @@ const router=createBrowserRouter(
        <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/account-created" element={<AccountCreatedPage />} />
+        <Route path="/classForm" element={<ClassForm/>}></Route>
+        <Route path="/stuDetailPage" element={<StuDetailPage/>}></Route>
+
         
     </Route>
   )

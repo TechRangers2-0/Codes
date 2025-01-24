@@ -1,59 +1,54 @@
 import { useState } from "react";
-import { useEffect } from "react";
 
 function StuDashboard() {
+  const [attendanceData, setAttendanceData] = useState([
+    { subject: "Mathematics", attendance: 85 },
+    { subject: "DAA", attendance: 92 },
+    { subject: "DBMS", attendance: 88 },
+    { subject: "SEPM", attendance: 78 },
+    { subject: "MP", attendance: 74 },
+    { subject: "UNIX", attendance: 90 },
+  ]);
+
+  const [selectedSubject, setSelectedSubject] = useState(null);
+
   const getAttendanceColor = (attendance) => {
-    if (attendance >= 85) {
-      return "from-green-500 to-green-600";
-    } else if (attendance >= 75) {
-      return "from-yellow-500 to-yellow-600";
-    } else {
-      return "from-red-500 to-red-600";
-    }
+    if (attendance >= 85) return "from-green-500 to-green-600";
+    else if (attendance >= 75) return "from-yellow-500 to-yellow-600";
+    else return "from-red-500 to-red-600";
   };
-  const attendanceData = [
-    {
-      subject: "Mathematics",
-      attendance: 85,
-    },
-    {
-      subject: "DAA",
-      attendance: 92,
-    },
-    {
-      subject: "DBMS",
-      attendance: 88,
-    },
-    {
-      subject: "SEPM",
-      attendance: 78,
-    },
-    {
-      subject: "MP",
-      attendance: 74,
-    },
-    {
-      subject: "UNIX",
-      attendance: 90,
-    },
-  ];
+
+  const handleBarClick = (subject) => {
+    setSelectedSubject(subject);
+  };
+
+  const handleAttendanceChange = (amount) => {
+    setAttendanceData((prevData) =>
+      prevData.map((item) =>
+        item.subject === selectedSubject
+          ? {
+              ...item,
+              attendance: Math.max(0, Math.min(100, item.attendance + amount)),
+            }
+          : item
+      )
+    );
+  };
+
+  const handleClosePopup = () => {
+    setSelectedSubject(null);
+  };
 
   // Add attendance management functions
 
-  const [studentDetails, setStudentDetails] = useState(
-    () => {
-      const storedDetails = localStorage.getItem("studentDetails");
-      return storedDetails ? JSON.parse(storedDetails) : {
-        Name: "",
-        USN: "",
-        Dept: "",
-        ContactNo: "",
-        Email: "",
-        Address: "",
-      };
-    },
-    []
-  );
+  const [studentDetails, setStudentDetails] = useState({
+    Name: "",
+    USN: "",
+    Dept: "",
+    ContactNo: "",
+    Email: "",
+    Address: "",
+  });
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -69,73 +64,72 @@ function StuDashboard() {
     setIsEditing(!isEditing);
   };
 
-  const [scores, setScores] = useState(() => {
-    const storedScores = localStorage.getItem("scores");
-    return storedScores ? JSON.parse(storedScores) : {
-      Mathematics: 0,
-      DAA: 0,
-      DBMS: 0,
-      SEPM: 0,
-      MP: 0,
-      UNIX: 0,
-    };
-  }, []);
+  const [scores, setScores] = useState({
+    Mathematics: 92,
+    DAA: 88,
+    DBMS: 85,
+    SEPM: 78,
+    MP: 90,
+    UNIX: 95,
+  });
 
-  const subjectEnrollment = [
-    {
-      subject: "Mathematics",
-      teacher: "Dr. Smith",
-      schedule: "Mon/Wed 9:00 AM",
-      room: "101",
-    },
-    {
-      subject: "DAA",
-      teacher: "Mrs. Johnson",
-      schedule: "Tue/Thu 10:30 AM",
-      room: "Lab 2",
-    },
-    {
-      subject: "DBMS",
-      teacher: "Mr. Davis",
-      schedule: "Mon/Fri 11:00 AM",
-      room: "203",
-    },
-    {
-      subject: "SEPM",
-      teacher: "Ms. Wilson",
-      schedule: "Wed/Fri 2:00 PM",
-      room: "105",
-    },
-    {
-      subject: "MP",
-      teacher: "Mr. Brown",
-      schedule: "Tue/Thu 1:30 PM",
-      room: "302",
-    },
-    {
-      subject: "UNIX",
-      teacher: "Mrs. Miller",
-      schedule: "Mon/Thu 3:00 PM",
-      room: "Lab 1",
-    },
-  ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [tempScores, setTempScores] = useState({ ...scores });
+
+  const handleInputChange2 = (subject, value) => {
+    setTempScores((prev) => ({
+      ...prev,
+      [subject]: value,
+    }));
+  };
+
+  const handleSave = () => {
+    setScores(tempScores);
+    setIsModalOpen(false);
+  };
+
+  const getProgressBarColor = (score) => {
+    if (score < 40) return "bg-red-500";
+    if (score < 70) return "bg-yellow-500";
+    return "bg-green-500";
+  };
+  const [subjectEnrollment, setSubjectEnrollment] = useState([]);
+
+  // Edit mode toggle
+  // New subject form state
+  const [newSubject, setNewSubject] = useState({
+    subject: "",
+    teacher: "",
+    Block: "",
+    Floor: "",
+  });
+
+  // Handle input changes
+  const handleInputChange1 = (e) => {
+    const { name, value } = e.target;
+    setNewSubject({ ...newSubject, [name]: value });
+  };
+
+  // Add new subject to the list
+  const handleAddSubject = () => {
+    setSubjectEnrollment([...subjectEnrollment, newSubject]);
+    setNewSubject({ subject: "", teacher: "", Block: "", Floor: "" }); // Reset form
+    setIsEditing(false); // Exit edit mode
+  };
 
   // Add parent details
-  const [parentDetails, setParentDetails] = useState(() => {
-    const storedParentDetails = localStorage.getItem("parentDetails");
-    return storedParentDetails ? JSON.parse(storedParentDetails) : {
-      FatherName: "",
-      FatherOccupation: "",
-      FatherContact: "",
-      FatherEmail: "",
-      MotherName: "",
-      MotherOccupation: "",
-      MotherContact: "",
-      MotherEmail: "",
-      Address: "",
-      EmergencyContact: "",
-    };
-  }, []);
+  const [parentDetails, setParentDetails] = useState({
+    FatherName: "",
+    FatherOccupation: "",
+    FatherContact: "",
+    FatherEmail: "",
+    MotherName: "",
+    MotherOccupation: "",
+    MotherContact: "",
+    MotherEmail: "",
+    Address: "",
+    EmergencyContact: "",
+  });
 
   const [isEditingParent, setIsEditingParent] = useState(false);
 
@@ -150,18 +144,6 @@ function StuDashboard() {
   const handleParentInputChange = () => {
     setIsEditingParent(!isEditingParent);
   };
-
-  useEffect(() => {
-    localStorage.setItem("studentDetails", JSON.stringify(studentDetails));
-  }, [studentDetails]);
-
-  useEffect(() => {
-    localStorage.setItem("scores", JSON.stringify(scores));
-  }, [scores]);
-
-  useEffect(() => {
-    localStorage.setItem("parentDetails", JSON.stringify(parentDetails));
-  }, [parentDetails]);
 
   return (
     <div className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
@@ -188,68 +170,97 @@ function StuDashboard() {
                 {attendanceData.map((item) => (
                   <div
                     key={item.subject}
-                    className="flex flex-col items-center flex-1 group"
+                    className="flex flex-col items-center flex-1 group cursor-pointer"
+                    onClick={() => handleBarClick(item.subject)}
                   >
                     <div className="w-full relative">
                       <div
                         className={`w-full bg-gradient-to-t ${getAttendanceColor(
                           item.attendance
-                        )} rounded-t-lg transition-all duration-300 group-hover:translate-y-1 relative`}
+                        )} rounded-t-lg transition-all duration-300 group-hover:translate-y-1`}
                         style={{ height: `${item.attendance * 3}px` }}
                       >
                         <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                           {item.attendance}%
                         </div>
-                        <div className="absolute bottom-0 left-0 right-0 h-full flex items-center justify-center">
-                          <div
-                            className="text-white text-sm font-medium transform -rotate-90 origin-center whitespace-nowrap"
-                            style={{
-                              transformOrigin: "center",
-                              width: "20px",
-                              textAlign: "center",
-                              letterSpacing: "0.05em",
-                              textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
-                            }}
-                          >
-                            {item.subject}
-                          </div>
-                        </div>
+                      </div>
+                      <div className="text-sm text-gray-800 mt-2">
+                        {item.subject}
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="mb-6 mx-6">
-              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <h3 className="text-gray-800 font-semibold mb-3">
-                  Attendance Indicators
-                </h3>
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <div className="w-8 h-4 bg-gradient-to-r from-green-500 to-green-600 rounded mr-3"></div>
-                    <span className="text-sm text-gray-600">
-                      Excellent (85% - 100%)
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-8 h-4 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded mr-3"></div>
-                    <span className="text-sm text-gray-600">
-                      Average (75% - 84%)
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-8 h-4 bg-gradient-to-r from-red-500 to-red-600 rounded mr-3"></div>
-                    <span className="text-sm text-gray-600">
-                      Needs Improvement (Below 75%)
-                    </span>
-                  </div>
+             <br /><hr /><br />
+            <div className="pl-6">
+              <h3 className="text-gray-800 font-semibold mb-3">
+                Attendance Indicators
+              </h3>
+              <div className="space-y-2">
+                <div className="flex items-center">
+                  <div className="w-8 h-4 bg-gradient-to-r from-green-500 to-green-600 rounded mr-3"></div>
+                  <span className="text-sm text-gray-600">
+                    Excellent (85% - 100%)
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-8 h-4 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded mr-3"></div>
+                  <span className="text-sm text-gray-600">
+                    Average (75% - 84%)
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-8 h-4 bg-gradient-to-r from-red-500 to-red-600 rounded mr-3"></div>
+                  <span className="text-sm text-gray-600">
+                    Needs Improvement (Below 75%)
+                  </span>
                 </div>
               </div>
             </div>
-            <button className="px-6 py-2 ml-4 mb-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-medium rounded-full hover:shadow-lg hover:from-blue-700 hover:to-blue-500 transform hover:-translate-y-0.5 transition-all duration-200">
-              Edit
-            </button>
+            <br /><hr />
+
+            {/* Popup Modal */}
+            {selectedSubject && (
+              <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                    Edit Attendance: {selectedSubject}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    Current Attendance:{" "}
+                    <span className="font-bold">
+                      {
+                        attendanceData.find(
+                          (item) => item.subject === selectedSubject
+                        ).attendance
+                      }
+                      %
+                    </span>
+                  </p>
+                  <div className="flex items-center space-x-4">
+                    <button
+                      className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                      onClick={() => handleAttendanceChange(-5)}
+                    >
+                      -5%
+                    </button>
+                    <button
+                      className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                      onClick={() => handleAttendanceChange(2)}
+                    >
+                      +2%
+                    </button>
+                  </div>
+                  <button
+                    className="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-900"
+                    onClick={handleClosePopup}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Student Details */}
@@ -301,7 +312,7 @@ function StuDashboard() {
               </div>
               <a
                 className="mt-3 px-6 py-2 ml-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-full hover:shadow-lg hover:from-purple-600 hover:to-indigo-600 transform hover:-translate-y-0.5 transition-all duration-200"
-                onClick={handleStudentInputChange }
+                onClick={handleStudentInputChange}
               >
                 {isEditing ? "Save" : "Edit"}
               </a>
@@ -341,7 +352,9 @@ function StuDashboard() {
                       </div>
                       <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-gradient-to-r from-green-500 to-green-600 rounded-full transition-all duration-500 ease-out"
+                          className={`h-full rounded-full transition-all duration-500 ease-out ${getProgressBarColor(
+                            score
+                          )}`}
                           style={{ width: `${score}%` }}
                         />
                       </div>
@@ -349,17 +362,65 @@ function StuDashboard() {
                   ))}
                 </div>
               </div>
-              <a className="mt-3 px-6 py-2 ml-4 bg-gradient-to-r from-green-500 to-green-700 text-white font-medium rounded-full hover:shadow-lg hover:from-green-700 hover:to-green-500 transform hover:-translate-y-0.5 transition-all duration-200">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="mt-3 px-6 py-2 ml-4 bg-gradient-to-r from-green-500 to-green-700 text-white font-medium rounded-full hover:shadow-lg hover:from-green-700 hover:to-green-500 transform hover:-translate-y-0.5 transition-all duration-200"
+              >
                 Edit
-              </a>
+              </button>
+
+              {isModalOpen && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                  <div className="bg-white rounded-lg shadow-lg p-6 w-80">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                      Edit Scores
+                    </h3>
+                    <div className="space-y-4">
+                      {Object.entries(tempScores).map(([subject, score]) => (
+                        <div
+                          key={subject}
+                          className="flex justify-between items-center"
+                        >
+                          <span className="capitalize text-gray-600">
+                            {subject}
+                          </span>
+                          <input
+                            type="number"
+                            className="w-16 p-1 border rounded text-center"
+                            value={score}
+                            onChange={(e) =>
+                              handleInputChange2(subject, e.target.value)
+                            }
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-6 flex justify-end space-x-3">
+                      <button
+                        onClick={() => setIsModalOpen(false)}
+                        className="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={handleSave}
+                        className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+                      >
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
 
-          {/* Sub enrollment */}
+        {/* Sub enrollment */}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+            {/* Header */}
             <div className="bg-gradient-to-r from-orange-50 to-amber-50 p-6">
               <h2 className="text-xl font-semibold text-gray-800 flex items-center">
                 <svg
@@ -375,37 +436,92 @@ function StuDashboard() {
                     d="M8 17l4-4m0 0l4-4m-4 4L8 7m4 4v6m4-6a4 4 0 01-8 0 4 4 0 018 0z"
                   />
                 </svg>
-                Subject Enrollment
+                Faculty Details
               </h2>
             </div>
-            <div className="p-6 mb-3">
+
+            {/* Subject List */}
+            <div className="p-6">
               <ul className="space-y-4">
-                {subjectEnrollment.map((subject) => (
-                  <li
-                    key={subject.subject}
-                    className="flex justify-between items-center"
-                  >
+                {subjectEnrollment.map((subject, index) => (
+                  <li key={index} className="flex justify-between items-center">
                     <span className="text-gray-800 font-semibold">
                       {subject.subject}
                     </span>
                     <div className="text-gray-600">
                       <p className="text-sm">
-                        <strong>Instructor:</strong> {subject.instructor}
+                        <strong>Teacher:</strong> {subject.teacher}
                       </p>
                       <p className="text-sm">
-                        <strong>Credits:</strong> {subject.credits}
+                        <strong>Block:</strong> {subject.Block}
                       </p>
+                      <p className="text-sm">
+                        <strong>Floor:</strong> {subject.Floor}
+                      </p>
+                      <hr />
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
-            <a className="px-6 py-2 ml-4 bg-gradient-to-r from-orange-500 to-orange-700 text-white font-medium rounded-full hover:shadow-lg hover:from-orange-700 hover:to-orange-500 transform hover:-translate-y-0.5 transition-all duration-200">
-              Edit
-            </a>
+
+            {/* Edit Mode */}
+            {isEditing && (
+              <div className="p-6 border-t border-gray-200">
+                <h3 className="text-lg font-medium mb-4">Add Faculty</h3>
+                <div className="space-y-4">
+                  <input
+                    type="text"
+                    name="subject"
+                    value={newSubject.subject}
+                    onChange={handleInputChange1}
+                    placeholder="Subject Name"
+                    className="w-full p-2 border rounded-lg"
+                  />
+                  <input
+                    type="text"
+                    name="teacher"
+                    value={newSubject.teacher}
+                    onChange={handleInputChange1}
+                    placeholder="Teacher Name"
+                    className="w-full p-2 border rounded-lg"
+                  />
+                  <input
+                    type="text"
+                    name="Block"
+                    value={newSubject.Block}
+                    onChange={handleInputChange1}
+                    placeholder="Block"
+                    className="w-full p-2 border rounded-lg"
+                  />
+                  <input
+                    type="text"
+                    name="Floor"
+                    value={newSubject.Floor}
+                    onChange={handleInputChange1}
+                    placeholder="Floor"
+                    className="w-full p-2 border rounded-lg"
+                  />
+                  <button
+                    onClick={handleAddSubject}
+                    className="px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600"
+                  >
+                    Add Faculty
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Edit Button */}
+            <button
+              onClick={() => setIsEditing(!isEditing)}
+              className="px-6 py-2 ml-4 mb-4 bg-gradient-to-r from-orange-500 to-orange-700 text-white font-medium rounded-full hover:shadow-lg hover:from-orange-700 hover:to-orange-500 transform hover:-translate-y-0.5 transition-all duration-200"
+            >
+              {isEditing ? "Cancel" : "Edit"}
+            </button>
           </div>
 
-            {/* Parent's details */}
+          {/* Parent's details */}
 
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 pb-4">
             <div className="bg-gradient-to-r from-pink-50 to-red-50 p-6">
@@ -434,23 +550,26 @@ function StuDashboard() {
                       {key.replace(/([A-Z])/g, " $1").trim()}:
                     </span>
                     {isEditingParent ? (
-                        <input
-                          className="w-2/3 p-2 border rounded-md"
-                          type="text"
-                          name={key}
-                          value={value}
-                          onChange={handleInputChangeParent}
-                        />
-                      ) : (
-                        <span className="w-2/3">{value}</span>
-                      )}
+                      <input
+                        className="w-2/3 p-2 border rounded-md"
+                        type="text"
+                        name={key}
+                        value={value}
+                        onChange={handleInputChangeParent}
+                      />
+                    ) : (
+                      <span className="w-2/3">{value}</span>
+                    )}
                     {/* <span className="text-gray-800">{value}</span> */}
                   </div>
                 ))}
               </div>
             </div>
-            <a className="px-6 py-2 ml-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white font-medium rounded-full hover:shadow-lg hover:from-pink-700 hover:to-pink-500 transform hover:-translate-y-0.5 transition-all duration-200" onClick={handleParentInputChange}>
-            {isEditingParent ? "Save" : "Edit"}
+            <a
+              className="px-6 py-2 ml-4 bg-gradient-to-r from-pink-500 to-pink-700 text-white font-medium rounded-full hover:shadow-lg hover:from-pink-700 hover:to-pink-500 transform hover:-translate-y-0.5 transition-all duration-200"
+              onClick={handleParentInputChange}
+            >
+              {isEditingParent ? "Save" : "Edit"}
             </a>
           </div>
         </div>

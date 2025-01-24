@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { auth, db } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
@@ -29,7 +29,7 @@ const SignupForm = () => {
       });
 
       // Redirect to the Account Created page
-      navigate('/account-created');
+      navigate('/classForm');
     } catch (error) {
       alert(error.message);
     } finally {
@@ -100,7 +100,7 @@ const SignupForm = () => {
               id="usn"
               name="usn"
               type="text"
-              placeholder="USN (Unique Student Number)"
+              placeholder="id"
               value={formData.usn}
               onChange={handleChange}
               required

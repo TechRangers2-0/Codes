@@ -25,30 +25,7 @@ const Navbar = () => {
                 >
                   Home
                 </NavLink>
-                <NavLink
-                to="/About"
-                  className={({isActive}) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-indigo-600' : 'text-gray-700'} "text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-200`
-                  }
-                >
-                  About
-                </NavLink>
-                <NavLink
-                to="/Contact"
-                  className={({isActive}) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-indigo-600' : 'text-gray-700'} "text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-200`
-                  }
-                >
-                  Contact
-                </NavLink>
-                <NavLink
-                to="/StuDashboard"
-                  className={({isActive}) =>
-                    `block py-2 pr-4 pl-3 duration-200 ${isActive ? 'text-indigo-600' : 'text-gray-700'} "text-gray-700 hover:text-indigo-600 font-medium transition-colors duration-200`
-                  }
-                >
-                  Features
-                </NavLink>
+                
                 <NavLink
                 to="/account-created"
                   className={({isActive}) =>

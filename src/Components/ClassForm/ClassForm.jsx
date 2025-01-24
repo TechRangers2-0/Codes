@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ClassForm = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ const ClassForm = () => {
     students: '',
   });
 
+  const navigate = useNavigate(); // Hook for programmatic navigation
+  
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -19,6 +22,8 @@ const ClassForm = () => {
     e.preventDefault();
     console.log('Form Data:', formData);
     // Handle form submission logic here
+    navigate('/StuDetailPage');
+
   };
 
   return (

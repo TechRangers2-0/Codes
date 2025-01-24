@@ -5,13 +5,13 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyC0vLtKH_Wnc0rRsAlmWbCSRZB-Ei0gGIU",
-    authDomain: "login-57c5f.firebaseapp.com",
-    projectId: "login-57c5f",
-    storageBucket: "login-57c5f.firebasestorage.app",
-    messagingSenderId: "555614798702",
-    appId: "1:555614798702:web:76a4d55a7c4027356b777f"
-  };
+  apiKey: "AIzaSyDDiKBWDzNS620lVRy_xNBqDko-sAyv6wE",
+  authDomain: "edutrack-dc2af.firebaseapp.com",
+  projectId: "edutrack-dc2af",
+  storageBucket: "edutrack-dc2af.firebasestorage.app",
+  messagingSenderId: "266542550009",
+  appId: "1:266542550009:web:e68aebfae218c5fe218b28"
+};
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);

@@ -5,12 +5,12 @@ import {getFirestore} from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDrB9FupDgjjVk4_guLC24ydG3retE3bME",
-  authDomain: "login-auth-4736e.firebaseapp.com",
-  projectId: "login-auth-4736e",
-  storageBucket: "login-auth-4736e.appspot.com",
-  messagingSenderId: "10562914305",
-  appId: "1:10562914305:web:2cff37be4fa9ccf0a29800"
+  apiKey: "AIzaSyDDiKBWDzNS620lVRy_xNBqDko-sAyv6wE",
+  authDomain: "edutrack-dc2af.firebaseapp.com",
+  projectId: "edutrack-dc2af",
+  storageBucket: "edutrack-dc2af.firebasestorage.app",
+  messagingSenderId: "266542550009",
+  appId: "1:266542550009:web:e68aebfae218c5fe218b28"
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

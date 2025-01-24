@@ -1,5 +1,5 @@
 // src/components/AllPages.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SignupForm from '../SignupForm';
 import LoginForm from '../LoginForm';
 
