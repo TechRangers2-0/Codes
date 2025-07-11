@@ -1,123 +1,122 @@
-# 📚 Student Management System (SMS)
+# 🎓 EduTrack - Educational Management System
 
 <div align="center">
 
-![SMS Logo](https://via.placeholder.com/150x150/4f46e5/ffffff?text=SMS)
+![EduTrack Banner](./src/indexUi.jpg)
 
-**A modern, responsive Student Management System built with React and Vite**
+**A comprehensive Educational Management System built with modern web technologies**
 
-[![Stars](https://img.shields.io/github/stars/TechRangers2-0/Codes?style=for-the-badge&logo=github)](https://github.com/TechRangers2-0/Codes/stargazers)
-[![Forks](https://img.shields.io/github/forks/TechRangers2-0/Codes?style=for-the-badge&logo=github)](https://github.com/TechRangers2-0/Codes/network/members)
-[![Issues](https://img.shields.io/github/issues/TechRangers2-0/Codes?style=for-the-badge&logo=github)](https://github.com/TechRangers2-0/Codes/issues)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/TechRangers2-0/Codes/ci.yml?branch=main&style=for-the-badge&logo=github)](https://github.com/TechRangers2-0/Codes/actions)
+[![License](https://img.shields.io/github/license/TechRangers2-0/Codes?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
 [![Contributors](https://img.shields.io/github/contributors/TechRangers2-0/Codes?style=for-the-badge&logo=github)](https://github.com/TechRangers2-0/Codes/graphs/contributors)
-[![License](https://img.shields.io/github/license/TechRangers2-0/Codes?style=for-the-badge)](LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/TechRangers2-0/Codes?style=for-the-badge&logo=git&logoColor=white)](https://github.com/TechRangers2-0/Codes/commits)
+[![Issues](https://img.shields.io/github/issues/TechRangers2-0/Codes?style=for-the-badge&logo=github)](https://github.com/TechRangers2-0/Codes/issues)
+[![Stars](https://img.shields.io/github/stars/TechRangers2-0/Codes?style=for-the-badge&logo=github)](https://github.com/TechRangers2-0/Codes/stargazers)
+
+[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.0.5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Firebase](https://img.shields.io/badge/Firebase-11.2.0-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.17-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 </div>
 
 ---
 
-## 📑 Table of Contents
+## 📋 Table of Contents
 
-- [🚀 About the Project](#-about-the-project)
-- [🛠️ Tech Stack](#️-tech-stack)
+- [🎯 About](#-about)
 - [✨ Features](#-features)
-- [📋 Prerequisites](#-prerequisites)
-- [⚡ Quick Start](#-quick-start)
-- [🔧 Installation](#-installation)
-- [🎯 Usage](#-usage)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🚀 Quick Start](#-quick-start)
+- [📖 Installation](#-installation)
+- [🎮 Usage](#-usage)
+- [📸 Screenshots](#-screenshots)
 - [🤝 Contributing](#-contributing)
-- [👥 Team Members](#-team-members)
 - [📄 License](#-license)
-- [📞 Support](#-support)
+- [👨‍💻 Team](#-team)
+- [🗺️ Roadmap](#️-roadmap)
+- [❓ FAQ](#-faq)
+- [🙏 Acknowledgements](#-acknowledgements)
 
 ---
 
-## 🚀 About the Project
+## 🎯 About
 
-The **Student Management System (SMS)** is a comprehensive web application designed to streamline student information management, registration processes, and academic administration. Built with modern web technologies, it provides an intuitive interface for both students and administrators to manage academic data efficiently.
+**EduTrack** is a modern, comprehensive Educational Management System designed to streamline academic administration and enhance the learning experience. Built with cutting-edge web technologies, EduTrack provides an intuitive platform for managing student records, tracking attendance, and facilitating educational workflows.
 
-### 🎯 Project Goals
-- Simplify student registration and enrollment processes
-- Provide secure authentication and profile management
-- Create an intuitive dashboard for students and administrators
-- Ensure responsive design for all devices
-- Implement modern best practices for web development
+### 🌟 Why EduTrack?
 
----
-
-## 🛠️ Tech Stack
-
-<div align="center">
-
-| Frontend | Backend | Database | Tools |
-|----------|---------|----------|-------|
-| ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) | ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white) | ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white) | ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) |
-| ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) | ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white) | | ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white) |
-| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) | | | ![PostCSS](https://img.shields.io/badge/PostCSS-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white) |
-| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) | | | ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) |
-
-</div>
-
-### 🔧 Key Dependencies
-- **React 18.3.1** - Modern React with hooks and concurrent features
-- **Vite 6.0.5** - Lightning-fast build tool
-- **Firebase 11.2.0** - Authentication and database
-- **React Router 7.6.3** - Client-side routing
-- **Tailwind CSS 3.4.17** - Utility-first CSS framework
-- **React Icons 5.4.0** - Popular icon library
-- **Axios 1.7.9** - HTTP client for API requests
+- **🔐 Secure Authentication**: Firebase-powered authentication with Google Sign-In
+- **📊 Real-time Analytics**: Live attendance tracking and performance monitoring
+- **🎨 Modern UI/UX**: Beautiful, responsive design with TailwindCSS
+- **⚡ Lightning Fast**: Built on Vite for optimal performance
+- **📱 Mobile-First**: Fully responsive design for all devices
+- **🔧 Extensible**: Modular architecture for easy customization
 
 ---
 
 ## ✨ Features
 
-### 🔐 Authentication & Security
-- **Secure Login/Logout** - Firebase authentication integration
-- **User Registration** - Complete signup flow with validation
-- **Account Management** - Profile creation and updates
-- **Protected Routes** - Role-based access control
+### 🎓 Student Management
+- **Student Dashboard**: Comprehensive overview of academic progress
+- **Attendance Tracking**: Real-time attendance monitoring with visual analytics
+- **Profile Management**: Detailed student profiles with customizable information
+- **Performance Analytics**: Visual representation of academic performance
 
-### 👨‍🎓 Student Management
-- **Student Dashboard** - Personalized student portal
-- **Profile Management** - Comprehensive student profiles
-- **Class Enrollment** - Easy class registration system
-- **Student Details** - Detailed student information views
+### 🔐 Authentication & Security
+- **Multi-factor Authentication**: Firebase-powered secure login system
+- **Google Sign-In Integration**: Seamless authentication with Google accounts
+- **Role-based Access Control**: Different access levels for students, teachers, and administrators
+- **Secure Data Handling**: Industry-standard security practices
+
+### 📊 Academic Features
+- **Class Management**: Organize and manage multiple classes efficiently
+- **Subject-wise Tracking**: Individual subject performance monitoring
+- **Interactive Charts**: Visual analytics for better data interpretation
+- **Report Generation**: Automated report creation and export
 
 ### 🎨 User Experience
-- **Responsive Design** - Mobile-first, works on all devices
-- **Modern UI/UX** - Clean and intuitive interface
-- **Real-time Notifications** - Toast notifications for user feedback
-- **Fast Performance** - Optimized with Vite and React 18
-
-### 🔧 Developer Features
-- **Hot Module Replacement** - Instant development feedback
-- **ESLint Integration** - Code quality and consistency
-- **Modern Build Pipeline** - Vite-powered build system
-- **Component Architecture** - Modular and reusable components
+- **Responsive Design**: Perfect experience across all devices
+- **Dark/Light Theme**: Customizable theme preferences
+- **Intuitive Navigation**: User-friendly interface with smooth transitions
+- **Toast Notifications**: Real-time feedback and notifications
 
 ---
 
-## 📋 Prerequisites
+## 🛠️ Tech Stack
 
-Before you begin, ensure you have the following installed:
+### Frontend
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| ![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat&logo=react&logoColor=white) | 18.3.1 | UI Library |
+| ![Vite](https://img.shields.io/badge/Vite-6.0.5-646CFF?style=flat&logo=vite&logoColor=white) | 6.0.5 | Build Tool |
+| ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.17-38B2AC?style=flat&logo=tailwind-css&logoColor=white) | 3.4.17 | CSS Framework |
+| ![React Router](https://img.shields.io/badge/React_Router-7.1.3-CA4245?style=flat&logo=react-router&logoColor=white) | 7.1.3 | Routing |
 
-- **Node.js** (version 18.0 or higher)
-- **npm** (version 8.0 or higher) or **yarn**
-- **Git** for version control
-- **Firebase Account** for backend services
+### Backend & Services
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| ![Firebase](https://img.shields.io/badge/Firebase-11.2.0-FFCA28?style=flat&logo=firebase&logoColor=black) | 11.2.0 | Backend Services |
+| ![Axios](https://img.shields.io/badge/Axios-1.7.9-5A29E4?style=flat&logo=axios&logoColor=white) | 1.7.9 | HTTP Client |
 
-Check your versions:
-```bash
-node --version
-npm --version
-git --version
-```
+### Development Tools
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| ![ESLint](https://img.shields.io/badge/ESLint-9.17.0-4B32C3?style=flat&logo=eslint&logoColor=white) | 9.17.0 | Code Linting |
+| ![PostCSS](https://img.shields.io/badge/PostCSS-8.5.1-DD3A0A?style=flat&logo=postcss&logoColor=white) | 8.5.1 | CSS Processing |
+| ![Autoprefixer](https://img.shields.io/badge/Autoprefixer-10.4.21-DD3735?style=flat&logo=autoprefixer&logoColor=white) | 10.4.21 | CSS Vendor Prefixes |
+
+### UI Components & Icons
+- **React Icons** - Comprehensive icon library
+- **React Toastify** - Toast notification system
+- **Custom Components** - Reusable UI components
 
 ---
 
-## ⚡ Quick Start
+## 🚀 Quick Start
 
-Get up and running in less than 5 minutes:
+Get EduTrack running on your local machine in just a few steps:
 
 ```bash
 # Clone the repository
@@ -131,204 +130,225 @@ npm install
 
 # Start development server
 npm run dev
-```
 
-Open your browser and visit `http://localhost:5173` 🎉
+# Open your browser and navigate to http://localhost:5173
+```
 
 ---
 
-## 🔧 Installation
+## 📖 Installation
 
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/TechRangers2-0/Codes.git
-cd Codes
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js** (v18.0.0 or higher) - [Download here](https://nodejs.org/)
+- **npm** (v8.0.0 or higher) - Comes with Node.js
+- **Git** - [Download here](https://git-scm.com/)
+
+### Step-by-Step Installation
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/TechRangers2-0/Codes.git
+   cd Codes
+   ```
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup**
+   ```bash
+   # Create environment file (if needed)
+   cp .env.example .env.local
+   
+   # Add your Firebase configuration
+   # VITE_FIREBASE_API_KEY=your_api_key
+   # VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+   # VITE_FIREBASE_PROJECT_ID=your_project_id
+   ```
+
+4. **Development Server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Production Build**
+   ```bash
+   npm run build
+   npm run preview
+   ```
+
+### Docker Installation (Optional)
+
+```dockerfile
+# Use official Node.js runtime as base image
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Build application
+RUN npm run build
+
+# Expose port
+EXPOSE 5173
+
+# Start application
+CMD ["npm", "run", "preview"]
 ```
-
-### 2️⃣ Install Dependencies
-```bash
-# Using npm
-npm install
-
-# Or using yarn
-yarn install
-```
-
-### 3️⃣ Environment Setup
-Create a `.env` file in the root directory and add your Firebase configuration:
-
-```env
-VITE_FIREBASE_API_KEY=your_api_key_here
-VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain_here
-VITE_FIREBASE_PROJECT_ID=your_project_id_here
-VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket_here
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id_here
-VITE_FIREBASE_APP_ID=your_app_id_here
-```
-
-### 4️⃣ Firebase Setup
-1. Create a new Firebase project
-2. Enable Authentication and Firestore
-3. Add your web app configuration to the `.env` file
 
 ---
 
-## 🎯 Usage
+## 🎮 Usage
 
-### Development Mode
-```bash
-npm run dev
-```
-- Starts the development server at `http://localhost:5173`
-- Includes hot module replacement for instant updates
-- Includes source maps for easy debugging
+### Basic Navigation
 
-### Build for Production
-```bash
-npm run build
-```
-- Creates optimized production build in `dist/` folder
-- Minifies and optimizes all assets
-- Ready for deployment
+1. **Home Page**: Overview of the EduTrack system
+2. **Student Dashboard**: Access student-specific features
+3. **Authentication**: Sign up or log in to access personalized features
+4. **Profile Management**: Update and manage user profiles
 
-### Preview Production Build
-```bash
-npm run preview
-```
-- Serves the production build locally
-- Test the production version before deployment
+### Key Workflows
 
-### Linting
-```bash
-npm run lint
-```
-- Runs ESLint to check code quality
-- Enforces consistent coding standards
+#### For Students
+```javascript
+// Access student dashboard
+Navigate to /StuDashboard
 
-### Project Structure
+// View attendance
+Check attendance charts for each subject
+
+// Update profile
+Navigate to profile section and modify information
 ```
-Codes/
-├── public/                 # Static assets
-├── src/
-│   ├── Components/        # React components
-│   │   ├── About/        # About page component
-│   │   ├── Background/   # Background component
-│   │   ├── ClassForm/    # Class enrollment forms
-│   │   ├── Footer/       # Footer component
-│   │   ├── Hero/         # Hero section
-│   │   ├── NavBar/       # Navigation component
-│   │   ├── Profile/      # Profile management
-│   │   └── StuDashboard/ # Student dashboard
-│   ├── api/              # API configurations
-│   ├── assets/           # Images and static files
-│   ├── context/          # React context providers
-│   ├── pages/            # Page components
-│   └── firebase.js       # Firebase configuration
-├── index.html            # HTML template
-├── package.json          # Dependencies and scripts
-└── vite.config.js        # Vite configuration
+
+#### For Administrators
+```javascript
+// Manage classes
+Navigate to /classForm
+
+// View student details
+Access /stuDetailPage for comprehensive student information
+
+// Monitor system analytics
+Use dashboard analytics for insights
 ```
+
+### API Integration
+
+```javascript
+// Example: Fetching student data
+import axios from 'axios';
+
+const getStudentData = async (studentId) => {
+  try {
+    const response = await axios.get(`/api/students/${studentId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching student data:', error);
+  }
+};
+```
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+
+### 🏠 Home Page
+*Modern landing page with gradient design and clear navigation*
+
+### 📊 Student Dashboard
+*Interactive dashboard with attendance tracking and performance analytics*
+
+### 🔐 Authentication
+*Secure login system with Firebase and Google Sign-In integration*
+
+### 📱 Mobile View
+*Fully responsive design optimized for mobile devices*
+
+</div>
 
 ---
 
 ## 🤝 Contributing
 
-We love contributions! Here's how you can help make this project better:
+We welcome contributions from the community! Here's how you can help make EduTrack better:
 
-### 🚀 Getting Started
+### 📋 Contribution Guidelines
 
-1. **Fork the repository**
+1. **Fork the Repository**
    ```bash
-   # Click the Fork button on GitHub or
-   gh repo fork TechRangers2-0/Codes
+   # Click the 'Fork' button on GitHub
+   git clone https://github.com/YOUR-USERNAME/Codes.git
    ```
 
-2. **Clone your fork**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/Codes.git
-   cd Codes
-   ```
-
-3. **Create a feature branch**
+2. **Create a Feature Branch**
    ```bash
    git checkout -b feature/amazing-feature
    ```
 
-4. **Make your changes**
-   - Write clean, readable code
-   - Follow existing code style
-   - Add comments where necessary
+3. **Make Your Changes**
+   - Follow the existing code style
+   - Add tests for new features
+   - Update documentation as needed
 
-5. **Test your changes**
+4. **Commit Your Changes**
    ```bash
-   npm run lint
-   npm run build
+   git commit -m "✨ Add amazing feature"
    ```
 
-6. **Commit your changes**
-   ```bash
-   git add .
-   git commit -m "Add amazing feature"
-   ```
-
-7. **Push to your fork**
+5. **Push to Your Branch**
    ```bash
    git push origin feature/amazing-feature
    ```
 
-8. **Create a Pull Request**
-   - Go to the original repository
-   - Click "New Pull Request"
-   - Describe your changes
+6. **Open a Pull Request**
+   - Provide a clear description of your changes
+   - Reference any related issues
+   - Ensure all tests pass
 
-### 📋 Contribution Guidelines
+### 🎯 Areas for Contribution
 
-- **Code Style**: Follow the existing code style and use ESLint
-- **Commits**: Use clear, descriptive commit messages
-- **Testing**: Ensure your code doesn't break existing functionality
-- **Documentation**: Update documentation if needed
-- **Issues**: Check existing issues before creating new ones
+- 🐛 **Bug Fixes**: Help us squash bugs
+- ✨ **New Features**: Implement requested features
+- 📚 **Documentation**: Improve documentation
+- 🎨 **UI/UX**: Enhance user experience
+- ⚡ **Performance**: Optimize application performance
+- 🧪 **Testing**: Add or improve tests
 
-### 🐛 Bug Reports
+### 📝 Code Style
 
-Found a bug? Help us fix it:
+- Use **ESLint** configuration provided
+- Follow **React** best practices
+- Use **TailwindCSS** for styling
+- Write meaningful commit messages
+- Add comments for complex logic
 
-1. **Check existing issues** to avoid duplicates
-2. **Create a detailed issue** with:
-   - Clear bug description
+### 🐛 Reporting Bugs
+
+Found a bug? Please help us fix it:
+
+1. Check if the bug is already reported in [Issues](https://github.com/TechRangers2-0/Codes/issues)
+2. Create a new issue with:
+   - Clear description of the bug
    - Steps to reproduce
    - Expected vs actual behavior
-   - Screenshots if applicable
+   - Screenshots (if applicable)
    - Environment details
-
-### 💡 Feature Requests
-
-Have an idea? We'd love to hear it:
-
-1. **Open an issue** with the `enhancement` label
-2. **Describe the feature** and its benefits
-3. **Discuss implementation** with the team
-
----
-
-## 👥 Team Members
-
-<div align="center">
-
-### 🏆 TechRangers 2.0 Team
-
-| Avatar | Name | Role | GitHub | LinkedIn |
-|--------|------|------|--------|----------|
-| <img src="https://github.com/github.png" width="60" height="60" style="border-radius: 50%;"> | **Team Lead** | Full Stack Developer | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/TechRangers2-0) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](#) |
-| <img src="https://github.com/github.png" width="60" height="60" style="border-radius: 50%;"> | **Frontend Developer** | React Specialist | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](#) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](#) |
-| <img src="https://github.com/github.png" width="60" height="60" style="border-radius: 50%;"> | **Backend Developer** | Firebase Expert | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](#) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](#) |
-| <img src="https://github.com/github.png" width="60" height="60" style="border-radius: 50%;"> | **UI/UX Designer** | Design Lead | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](#) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](#) |
-
-</div>
-
-### 🤝 Want to Join Us?
-
-We're always looking for passionate developers to join our team! If you're interested in contributing regularly, reach out to us through our [GitHub Discussions](https://github.com/TechRangers2-0/Codes/discussions).
 
 ---
 
@@ -339,7 +359,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ```
 MIT License
 
-Copyright (c) 2024 TechRangers 2.0
+Copyright (c) 2024 TechRangers2-0
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -350,47 +370,152 @@ furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 ```
 
 ---
 
-## 📞 Support
+## 👨‍💻 Team
 
 <div align="center">
 
-**Need Help? We're Here for You!**
+### 🏆 TechRangers2-0 Team
 
-[![GitHub Issues](https://img.shields.io/badge/GitHub-Issues-red?style=for-the-badge&logo=github)](https://github.com/TechRangers2-0/Codes/issues)
-[![GitHub Discussions](https://img.shields.io/badge/GitHub-Discussions-purple?style=for-the-badge&logo=github)](https://github.com/TechRangers2-0/Codes/discussions)
-[![Email](https://img.shields.io/badge/Email-Contact-blue?style=for-the-badge&logo=gmail)](mailto:techrangers2.0@example.com)
+*Passionate developers building the future of education technology*
 
-### 🔗 Quick Links
-- 📖 [Documentation](https://github.com/TechRangers2-0/Codes/wiki)
-- 🐛 [Report a Bug](https://github.com/TechRangers2-0/Codes/issues/new?template=bug_report.md)
-- 💡 [Request a Feature](https://github.com/TechRangers2-0/Codes/issues/new?template=feature_request.md)
-- 💬 [Join Discussion](https://github.com/TechRangers2-0/Codes/discussions)
-
-### 📊 Project Status
-![GitHub last commit](https://img.shields.io/github/last-commit/TechRangers2-0/Codes?style=for-the-badge)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/TechRangers2-0/Codes?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/TechRangers2-0/Codes?style=for-the-badge)
+[![GitHub](https://img.shields.io/badge/GitHub-TechRangers2--0-181717?style=for-the-badge&logo=github)](https://github.com/TechRangers2-0)
 
 </div>
+
+### 📧 Contact Information
+
+- 📮 **Email**: [contact@techrangers.dev](mailto:contact@techrangers.dev)
+- 🐦 **Twitter**: [@TechRangers20](https://twitter.com/TechRangers20)
+- 💼 **LinkedIn**: [TechRangers2-0](https://linkedin.com/company/techrangers2-0)
+- 🌐 **Website**: [www.techrangers.dev](https://www.techrangers.dev)
+
+---
+
+## 🗺️ Roadmap
+
+### 🎯 Current Goals (Q1 2024)
+
+- [x] ✅ Core authentication system
+- [x] ✅ Student dashboard implementation
+- [x] ✅ Attendance tracking functionality
+- [ ] 🔄 Advanced analytics dashboard
+- [ ] 📱 Mobile application development
+- [ ] 🔔 Real-time notifications
+
+### 🚀 Future Plans (Q2-Q4 2024)
+
+- [ ] 🎓 **Teacher Portal**: Comprehensive teacher management system
+- [ ] 📊 **Advanced Analytics**: ML-powered insights and predictions
+- [ ] 💬 **Communication Hub**: Integrated messaging and announcements
+- [ ] 📚 **Learning Management**: Course content and assignment management
+- [ ] 🔌 **API Development**: Public API for third-party integrations
+- [ ] 🌍 **Internationalization**: Multi-language support
+- [ ] ☁️ **Cloud Integration**: Enhanced cloud storage and backup
+- [ ] 🤖 **AI Features**: Intelligent recommendations and automation
+
+### 💭 Long-term Vision
+
+- **🌟 Industry Standard**: Become the go-to educational management platform
+- **🔗 Ecosystem Integration**: Seamless integration with educational tools
+- **🌍 Global Reach**: Support educational institutions worldwide
+- **🚀 Innovation Hub**: Pioneer new educational technologies
+
+---
+
+## ❓ FAQ
+
+<details>
+<summary><strong>🔧 How do I set up Firebase for this project?</strong></summary>
+
+1. Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
+2. Enable Authentication and Firestore
+3. Copy your configuration and add to environment variables
+4. Enable Google Sign-In in Authentication settings
+
+</details>
+
+<details>
+<summary><strong>📱 Is EduTrack mobile-friendly?</strong></summary>
+
+Yes! EduTrack is built with a mobile-first approach using TailwindCSS. It works seamlessly across all devices and screen sizes.
+
+</details>
+
+<details>
+<summary><strong>🔄 How often is the project updated?</strong></summary>
+
+We actively maintain EduTrack with regular updates. Check our [GitHub repository](https://github.com/TechRangers2-0/Codes) for the latest commits and releases.
+
+</details>
+
+<details>
+<summary><strong>🛠️ Can I customize the UI components?</strong></summary>
+
+Absolutely! The project uses TailwindCSS and modular React components, making customization straightforward. Refer to our [Contributing Guidelines](#-contributing) for best practices.
+
+</details>
+
+<details>
+<summary><strong>🔐 Is my data secure with EduTrack?</strong></summary>
+
+Yes, we take security seriously. We use Firebase for authentication and implement industry-standard security practices. All data is encrypted and securely stored.
+
+</details>
+
+<details>
+<summary><strong>💰 Is EduTrack free to use?</strong></summary>
+
+Yes, EduTrack is open-source and free to use under the MIT License. You can use, modify, and distribute it according to the license terms.
+
+</details>
+
+---
+
+## 🙏 Acknowledgements
+
+We extend our gratitude to the amazing open-source community and the following projects that make EduTrack possible:
+
+### 🛠️ Core Technologies
+- **[React](https://reactjs.org/)** - The foundation of our user interface
+- **[Vite](https://vitejs.dev/)** - Lightning-fast build tool and development server
+- **[Firebase](https://firebase.google.com/)** - Backend services and authentication
+- **[TailwindCSS](https://tailwindcss.com/)** - Utility-first CSS framework
+
+### 📦 Key Dependencies
+- **[React Router](https://reactrouter.com/)** - Declarative routing for React
+- **[Axios](https://axios-http.com/)** - Promise-based HTTP client
+- **[React Icons](https://react-icons.github.io/react-icons/)** - Popular icon library
+- **[React Toastify](https://fkhadra.github.io/react-toastify/)** - Notification system
+
+### 🎨 Design Inspiration
+- **[Heroicons](https://heroicons.com/)** - Beautiful hand-crafted SVG icons
+- **[Shields.io](https://shields.io/)** - Quality metadata badges
+- **[GitHub](https://github.com/)** - Platform that hosts our code and collaboration
+
+### 🌟 Special Thanks
+- All contributors who have helped improve EduTrack
+- The open-source community for continuous inspiration
+- Educational institutions that provide feedback and requirements
+- Beta testers who help us identify and fix issues
 
 ---
 
 <div align="center">
 
-**⭐ Don't forget to star this repository if you found it helpful! ⭐**
+### 🌟 If you find EduTrack helpful, please consider giving it a star!
 
-Made with ❤️ by [TechRangers 2.0](https://github.com/TechRangers2-0)
+[![GitHub stars](https://img.shields.io/github/stars/TechRangers2-0/Codes?style=social)](https://github.com/TechRangers2-0/Codes/stargazers)
+
+---
+
+**Built with ❤️ by [TechRangers2-0](https://github.com/TechRangers2-0)**
+
+*Empowering education through technology*
+
+---
 
 </div>
