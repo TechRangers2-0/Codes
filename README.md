@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Project Banner](https://via.placeholder.com/800x200/4F46E5/FFFFFF?text=Student+Management+System)
+
 
 [![GitHub stars](https://img.shields.io/github/stars/TechRangers2-0/Codes?style=for-the-badge&logo=github&logoColor=white)](https://github.com/TechRangers2-0/Codes/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/TechRangers2-0/Codes?style=for-the-badge&logo=github&logoColor=white)](https://github.com/TechRangers2-0/Codes/network/members)
@@ -271,23 +271,13 @@ We welcome contributions from the community! Here's how you can help improve the
 
 Meet the amazing team behind the Student Management System:
 
-</div>
-
-<table align="center">
-  <tr>
-    <td align="center">
-      <a href="https://github.com/HARIHARANATH">
-        <img src="https://github.com/HARIHARANATH.png" width="100px;" alt="HARIHARANATH" style="border-radius: 50%;"/>
-        <br />
-        <sub><b>HARIHARANATH</b></sub>
-      </a>
-      <br />
-      <small>💻 Lead Developer</small>
-    </td>
-  </tr>
-</table>
-
-<div align="center">
+| Avatar | Name | Profile |
+| ------ | ---- | ------- |
+| <img src="https://avatars.githubusercontent.com/u/154905590?v=4" width="48" /> | Hari-hara7 | [GitHub](https://github.com/Hari-hara7) |
+| <img src="https://avatars.githubusercontent.com/u/165381842?v=4" width="48" /> | CodeAnup | [GitHub](https://github.com/CodeAnup) |
+| <img src="https://avatars.githubusercontent.com/u/149568430?v=4" width="48" /> | KrithikaRaviraj | [GitHub](https://github.com/KrithikaRaviraj) |
+| <img src="https://avatars.githubusercontent.com/in/29110?v=4" width="48" /> | dependabot[bot] | [GitHub](https://github.com/apps/dependabot) |
+| <img src="https://avatars.githubusercontent.com/in/1143301?v=4" width="48" /> | Copilot | [GitHub](https://github.com/apps/copilot-swe-agent) |
 
 ### 🤝 **Want to Join Our Team?**
 
