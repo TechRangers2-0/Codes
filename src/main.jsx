@@ -10,9 +10,9 @@ import StuDashboard from './Components/StuDashboard/StuDashboard'
 import SignUp from './Components/SignUp/SignUp'
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import AccountCreatedPage from './components/AccountCreatedPage';
-import ClassForm from './components/ClassForm/ClassForm';
-import StuDetailPage from './components/StuDetailPage/StuDetailPage';
+import AccountCreatedPage from './Components/AccountCreatedPage';
+import ClassForm from './Components/ClassForm/ClassForm';
+import StuDetailPage from './Components/StuDetailPage/StuDetailPage';
 
 const router=createBrowserRouter(
   createRoutesFromElements(
