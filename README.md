@@ -60,12 +60,15 @@ The **Student Management System (SMS)** is a comprehensive web application desig
 
 ### 🔧 Key Dependencies
 - **React 18.3.1** - Modern React with hooks and concurrent features
-- **Vite 6.0.5** - Lightning-fast build tool
-- **Firebase 11.2.0** - Authentication and database
-- **React Router 7.6.3** - Client-side routing
+- **Vite 6.0.5** - Lightning-fast build tool and dev server
+- **Firebase 11.2.0** - Authentication and database backend
+- **React Router 7.6.3** - Client-side routing and navigation
 - **Tailwind CSS 3.4.17** - Utility-first CSS framework
-- **React Icons 5.4.0** - Popular icon library
+- **React Icons 5.4.0** - Popular icon library for UI elements
 - **Axios 1.7.9** - HTTP client for API requests
+- **React Toastify 11.0.3** - Beautiful notifications and alerts
+- **PostCSS 8.5.1** - CSS processing and transformations
+- **ESLint 9.17.0** - Code quality and style enforcement
 
 ---
 
@@ -74,6 +77,7 @@ The **Student Management System (SMS)** is a comprehensive web application desig
 ### 🔐 Authentication & Security
 - **Secure Login/Logout** - Firebase authentication integration
 - **User Registration** - Complete signup flow with validation
+- **Google Sign-In** - Social authentication option
 - **Account Management** - Profile creation and updates
 - **Protected Routes** - Role-based access control
 
@@ -82,6 +86,7 @@ The **Student Management System (SMS)** is a comprehensive web application desig
 - **Profile Management** - Comprehensive student profiles
 - **Class Enrollment** - Easy class registration system
 - **Student Details** - Detailed student information views
+- **Account Creation Success** - User-friendly confirmation pages
 
 ### 🎨 User Experience
 - **Responsive Design** - Mobile-first, works on all devices
@@ -208,25 +213,48 @@ npm run lint
 ### Project Structure
 ```
 Codes/
-├── public/                 # Static assets
+├── public/                    # Static assets
+│   └── vite.svg              # Vite logo
 ├── src/
-│   ├── Components/        # React components
-│   │   ├── About/        # About page component
-│   │   ├── Background/   # Background component
-│   │   ├── ClassForm/    # Class enrollment forms
-│   │   ├── Footer/       # Footer component
-│   │   ├── Hero/         # Hero section
-│   │   ├── NavBar/       # Navigation component
-│   │   ├── Profile/      # Profile management
-│   │   └── StuDashboard/ # Student dashboard
-│   ├── api/              # API configurations
-│   ├── assets/           # Images and static files
-│   ├── context/          # React context providers
-│   ├── pages/            # Page components
-│   └── firebase.js       # Firebase configuration
-├── index.html            # HTML template
-├── package.json          # Dependencies and scripts
-└── vite.config.js        # Vite configuration
+│   ├── Components/           # React components
+│   │   ├── About/           # About page component
+│   │   ├── Background/      # Background component
+│   │   ├── ClassForm/       # Class enrollment forms
+│   │   ├── Contact/         # Contact page component
+│   │   ├── Firebase/        # Firebase related components
+│   │   ├── Footer/          # Footer component
+│   │   ├── Hero/            # Hero section
+│   │   ├── Home/            # Home page component
+│   │   ├── NavBar/          # Navigation component
+│   │   ├── Profile/         # Profile management
+│   │   ├── SignInWithGoogle/ # Google authentication
+│   │   ├── SignUp/          # Sign up component
+│   │   ├── StuDashboard/    # Student dashboard
+│   │   ├── StuDetailPage/   # Student details page
+│   │   ├── AccountCreatedPage.jsx # Account creation success
+│   │   ├── LoginForm.jsx    # Login form component
+│   │   └── SignupForm.jsx   # Signup form component
+│   ├── api/                 # API configurations
+│   │   └── axios.jsx        # Axios configuration
+│   ├── assets/              # Images and static files
+│   │   ├── google.png       # Google logo
+│   │   └── image1.jpg       # Sample image
+│   ├── context/             # React context providers
+│   │   └── AuthProvider.jsx # Authentication context
+│   ├── pages/               # Page components
+│   │   ├── Login.jsx        # Login page
+│   │   └── Signup.jsx       # Signup page
+│   ├── App.jsx              # Main App component
+│   ├── Layout.jsx           # Layout component
+│   ├── firebase.js          # Firebase configuration
+│   ├── main.jsx             # Application entry point
+│   └── index.css            # Global styles
+├── eslint.config.js          # ESLint configuration
+├── index.html               # HTML template
+├── package.json             # Dependencies and scripts
+├── postcss.config.js        # PostCSS configuration
+├── tailwind.config.js       # Tailwind CSS configuration
+└── vite.config.js           # Vite configuration
 ```
 
 ---
