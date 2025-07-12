@@ -591,7 +591,7 @@ copies or substantial portions of the Software.
 <br />
 <strong>🚀 Hari Haran</strong>
 <br />
-<sub><em>Lead Developer & Project Architect</em></sub>
+<sub><em>Full Stack Developer & Project Architect</em></sub>
 <br />
 <a href="https://github.com/Hari-hara7">
 <img src="https://img.shields.io/badge/GitHub-@Hari--hara7-100000?style=for-the-badge&logo=github&logoColor=white" />
@@ -615,15 +615,15 @@ copies or substantial portions of the Software.
 <td align="center" width="200px">
 <img src="https://avatars.githubusercontent.com/u/149568430?v=4" width="100px" style="border-radius: 50%; border: 3px solid #F7DF1E;" />
 <br />
-<strong>⭐ Krithika Raviraj</strong>
+<strong> Krithika Raviraj</strong>
 <br />
-<sub><em>Backend Developer & Database Architect</em></sub>
+<sub><em> Database</em></sub>
 <br />
 <a href="https://github.com/KrithikaRaviraj">
 <img src="https://img.shields.io/badge/GitHub-@KrithikaRaviraj-100000?style=for-the-badge&logo=github&logoColor=white" />
 </a>
 <br />
-<sub>🗄️ Database Master | 🔐 Security Expert | 📊 Analytics Pro</sub>
+ 
 </td>
 </tr>
 </table>
