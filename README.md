@@ -807,11 +807,11 @@ We extend our gratitude to the amazing open-source community and the following p
 
 ### 📊 **Repository Statistics**
 
-<a href="https://github.com/TechRangers2-0/Codes">
+<a href="https://github.com/TechRangers2-0/Codes.git">
 <img src="https://github-readme-stats.vercel.app/api?username=TechRangers2-0&show_icons=true&theme=gradient&count_private=true" alt="GitHub Stats" />
 </a>
 
-<a href="https://github.com/TechRangers2-0/Codes">
+<a href="[https://github.com/TechRangers2-0/Codes](https://github.com/TechRangers2-0/Codes.git)">
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TechRangers2-0&layout=compact&theme=gradient" alt="Top Languages" />
 </a>
 
